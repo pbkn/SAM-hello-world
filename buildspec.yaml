@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - cd .\HelloWorldFunction\
+      - cd HelloWorldFunction
       - mvn clean compile install -DskipTests=true
       - cd ..
       - sam validate -t .\template.yaml --lint

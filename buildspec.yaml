@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to SAM build...
+      - aws --version
+      - sam --version
+  build:
+    commands:
+      - echo Build started on `date`
+      - sam validate -t .\template.yaml --lint
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'

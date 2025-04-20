@@ -12,7 +12,7 @@ phases:
       - cd HelloWorldFunction
       - mvn clean compile install -DskipTests=true
       - cd ..
-      - sam validate -t .\template.yaml --lint
+      - sam validate -t template.yaml --lint
   post_build:
     commands:
       - echo Build completed on `date`

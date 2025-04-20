@@ -19,3 +19,4 @@ phases:
 artifacts:
   files:
     - target/HelloWorld-1.0.jar
+    - template.yaml

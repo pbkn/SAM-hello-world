@@ -5,13 +5,17 @@ phases:
       - echo Logging in to SAM build...
       - aws --version
       - sam --version
+      - mvn --version
   build:
     commands:
       - echo Build started on `date`
+      - cd .\HelloWorldFunction\
+      - mvn clean compile install -DskipTests=true
+      - cd ..
       - sam validate -t .\template.yaml --lint
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*'
+    - target/HelloWorld-1.0.jar

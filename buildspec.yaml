@@ -14,7 +14,7 @@ phases:
       - cd ..
       - sam validate -t template.yaml --lint
       - echo ${S3_BUCKET} # S3_BUCKET defined in the environment variables of the code build
-      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml
+      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml --no-resolve-s3
   post_build:
     commands:
       - echo Build completed on `date`

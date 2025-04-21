@@ -13,7 +13,8 @@ phases:
       - mvn clean compile install -DskipTests=true
       - cd ..
       - sam validate -t template.yaml --lint
-      - sam package --template-file template.yaml --s3-bucket $S3_BUCKET --output-template-file packaged.yaml # $S3_BUCKET defined in the environment variables of the code build
+      - echo ${S3_BUCKET} # S3_BUCKET defined in the environment variables of the code build
+      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml
   post_build:
     commands:
       - echo Build completed on `date`
